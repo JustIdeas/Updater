@@ -87,16 +87,23 @@ public class GetVersion {
 				if (inputLine.trim().equals("<td class=\"tdStatsInfo\">WOM5000i</td>")) {
 					resultado = 4;
 				}
-				if (inputLine.trim().equals("<td class=\"tdStatsInfo\">WOM MiMo</td>")) {
+				if (inputLine.trim().equals("<td class=\"tdStatsInfo\">WOMMiMo</td>")) {
 					resultado = 5;
-					System.out.println("Entrou WOMMIMO");
+				}
+				if (inputLine.trim().equals("<td class=\"tdStatsInfo\">WOM5A</td>")) {
+					resultado = 6;
+				}
+				if (inputLine.trim().equals("<td class=\"tdStatsInfo\">WOM5AMiMo</td>")) {
+					System.out.println("DENTRO WOM 5A MIMO");
+					resultado = 7;
+					
 				}
 
 			}
 
 			in.close();
 
-			if (resultado != 1 && resultado != 2 && resultado != 3 && resultado != 4 && resultado != 5) {
+			if (resultado != 1 && resultado != 2 && resultado != 3 && resultado != 4 && resultado != 5 && resultado != 6 && resultado != 7) {
 				resultado = 10;
 				System.out.println("N�o pegou vers�o");
 			}

@@ -475,8 +475,8 @@ public class WindowApp extends JFrame {
 										}
 									}
 
-									if (getversion.resultado == 4) {
-										textArea.append("Produto no IP " + num + " � um WOM5000i" + "\n");
+									if (getversion.resultado == 4 || getversion.resultado == 6) {
+										textArea.append("Produto no IP " + num + " � um WOM5000i / 5A" + "\n");
 										AcrW5i++;
 										String W5iUP = Integer.toString(AcrW5i);
 										LBLEncW5i.setText(W5iUP);
@@ -530,8 +530,8 @@ public class WindowApp extends JFrame {
 											}
 										}
 									}
-									if (getversion.resultado == 5) {
-										textArea.append("Produto no IP " + num + " � um WOM 5000 MiMo" + "\n");
+									if (getversion.resultado == 5 || getversion.resultado == 7) {
+										textArea.append("Produto no IP " + num + " � um WOM 5000 MiMo / 5A MiMo" + "\n");
 										AcrW5M++;
 										String W5MUP = Integer.toString(AcrW5M);
 										LBLEncW5M.setText(W5MUP);
@@ -1592,7 +1592,7 @@ public class WindowApp extends JFrame {
 		FWWOM5000.setBackground(Color.GRAY);
 
 		JPanel panel_3 = new JPanel();
-		panel_3.setBorder(new TitledBorder(null, "WOM 5000i", TitledBorder.LEADING, TitledBorder.TOP, null,
+		panel_3.setBorder(new TitledBorder(null, "WOM 5000i/5A", TitledBorder.LEADING, TitledBorder.TOP, null,
 				new Color(59, 59, 59)));
 		panel_3.setBounds(558, 242, 272, 55);
 		Updater.getContentPane().add(panel_3);
@@ -1617,7 +1617,7 @@ public class WindowApp extends JFrame {
 
 				WOM5000iDIRCOMPLETO.setText(chooser.getSelectedFile().getAbsolutePath());
 				lblNomeWOM5000i.setText(chooser.getSelectedFile().getName());
-				if (lblNomeWOM5000i.getText().contains("WOM5000" + "i")) {
+				if (lblNomeWOM5000i.getText().contains("WOM5000" + "i") || lblNomeWOM5000i.getText().contains("WOM5A")) {
 					ControleFilesWOMi = 1;
 					WOM5000iDIRCOMPLETO.setText(chooser.getSelectedFile().getAbsolutePath());
 					lblNomeWOM5000i.setText(chooser.getSelectedFile().getName());
@@ -1633,7 +1633,7 @@ public class WindowApp extends JFrame {
 		FWWOM5000i.setBackground(Color.GRAY);
 
 		JPanel panel_4 = new JPanel();
-		panel_4.setBorder(new TitledBorder(null, "WOM 5000 MiMo", TitledBorder.LEADING, TitledBorder.TOP, null,
+		panel_4.setBorder(new TitledBorder(null, "WOM 5000 MiMo/5A MiMo", TitledBorder.LEADING, TitledBorder.TOP, null,
 				new Color(59, 59, 59)));
 		panel_4.setBounds(558, 306, 272, 55);
 		Updater.getContentPane().add(panel_4);
@@ -1659,12 +1659,15 @@ public class WindowApp extends JFrame {
 
 				WOM5000MIMODIRCOMPLETO.setText(chooser.getSelectedFile().getAbsolutePath());
 				lblNomeWOM5000MIMO.setText(chooser.getSelectedFile().getName());
-				if (lblNomeWOM5000MIMO.getText().startsWith("WOMMiMo")) {
+				System.out.println(lblNomeWOM5000MIMO.getText());
+				
+				if (lblNomeWOM5000MIMO.getText().startsWith("WOMMiMo") || lblNomeWOM5000MIMO.getText().startsWith("WOM5AMiMo")) {
 					ControleFilesWOMMIMO = 1;
 					WOM5000MIMODIRCOMPLETO.setText(chooser.getSelectedFile().getAbsolutePath());
 					lblNomeWOM5000MIMO.setText(chooser.getSelectedFile().getName());
 				} else {
-					System.out.println("n�o � essa firmwware");
+					System.out.println(lblNomeWOM5000MIMO.getText());
+					System.out.println("n�o � essa firmware");
 					WOM5000MIMODIRCOMPLETO.setText("Arquivo Incorreto");
 					lblNomeWOM5000MIMO.setText("Incorreto");
 					ControleFilesWOMMIMO = 0;
